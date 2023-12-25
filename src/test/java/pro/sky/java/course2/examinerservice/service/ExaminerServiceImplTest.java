@@ -33,18 +33,19 @@ class ExaminerServiceImplTest {
             "Вопрос4",
             "Ответ4"
     );
-    public final Question QUESTION_5 = new Question(
-            "Вопрос5",
-            "Ответ5"
-    );
-    public final Question QUESTION_6 = new Question(
-            "Вопрос6",
-            "Ответ6"
-    );
+
 
     @Test
     public void correctlyGetQuestionsTest() {
         when(questionService.size()).thenReturn(6);
         assertThrows(FullSetException.class, () -> out.getQuestions(7));
+    }
+    @Test
+    public void correctlyGetQuestionsOnSizeTest() {
+        when(questionService.size()).thenReturn(7);
+        when(questionService.getRandomQuestion()).
+                thenReturn(QUESTION_1,QUESTION_2,QUESTION_3,QUESTION_4);
+        assertEquals(out.getQuestions(3).size(),3);
+        //assertThrows(FullSetException.class, () -> out.getQuestions(7));
     }
 }

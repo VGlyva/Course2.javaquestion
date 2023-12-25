@@ -11,7 +11,7 @@ import pro.sky.java.course2.examinerservice.service.ExaminerService;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/get")
+@RequestMapping("exam/get")
 
 public class ExaminerController {
     private final ExaminerService examinerService;
